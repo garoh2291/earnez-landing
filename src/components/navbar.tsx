@@ -5,7 +5,6 @@ import { Link as Link1 } from "react-scroll";
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { FaBurger } from "react-icons/fa6";
 import { MdMenu } from "react-icons/md";
 
 export default function Navbar({
@@ -18,8 +17,8 @@ export default function Navbar({
   bgLight: boolean;
   navCenter: boolean;
 }) {
-  let [menu, setMenu] = useState<Boolean>(false);
-  let [scroll, setScroll] = useState<Boolean>(false);
+  const [menu, setMenu] = useState<boolean>(false);
+  const [scroll, setScroll] = useState<boolean>(false);
   const t = useTranslations("HomePage");
 
   useEffect(() => {

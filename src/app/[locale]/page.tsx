@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+// import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/navbar";
@@ -11,7 +11,7 @@ import ScrollToTop from "@/components/scroll-to-top";
 import Switcher from "@/components/switcher";
 
 export default function Home() {
-  const t = useTranslations("HomePage");
+  // const t = useTranslations("HomePage");
   return (
     <>
       <Navbar

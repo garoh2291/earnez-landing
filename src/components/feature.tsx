@@ -14,7 +14,7 @@ export default function Feature() {
   return (
     <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mt-6 gap-6">
       {feature.map((item: Feature, index: number) => {
-        let Icon = item.icon;
+        const Icon = item.icon;
         return (
           <div
             className={`p-6  transition duration-500 rounded-3xl ${

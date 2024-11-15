@@ -1,29 +1,7 @@
 import React from "react";
-import Link from "next/link";
-
-import { FiAperture, FiShield } from "react-icons/fi";
-import { IconType } from "react-icons";
 import Image from "next/image";
 
 export default function About() {
-  interface Data {
-    icon: IconType;
-    title: string;
-    desc: string;
-  }
-
-  let data: Data[] = [
-    {
-      icon: FiShield,
-      title: "Enhance Security",
-      desc: "There are many variations of passages of Lorem Ipsum available",
-    },
-    {
-      icon: FiAperture,
-      title: "High Performance",
-      desc: "There are many variations of passages of Lorem Ipsum available",
-    },
-  ];
   return (
     <div className="grid md:grid-cols-12 grid-cols-1 items-center gap-6">
       <div className="lg:col-span-5 md:col-span-6">

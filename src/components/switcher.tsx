@@ -1,13 +1,15 @@
 "use client";
 import React from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
-import Link from "next/link";
 
 export default function Switcher() {
+  let htmlTag: {
+    className: string;
+  };
   if (typeof document !== "undefined") {
-    var htmlTag = document.getElementsByTagName("html")[0];
+    htmlTag = document.getElementsByTagName("html")[0];
   }
-  const changeTheme = (e: any) => {
+  const changeTheme = () => {
     if (htmlTag.className.includes("dark")) {
       htmlTag.className = "light";
     } else {
@@ -23,7 +25,7 @@ export default function Switcher() {
             type="checkbox"
             className="checkbox opacity-0 absolute"
             id="chk"
-            onChange={(e) => changeTheme(e)}
+            onChange={changeTheme}
           />
           <label
             className="label bg-slate-900 dark:bg-white shadow dark:shadow-gray-800 cursor-pointer rounded-full flex justify-between items-center p-1 w-14 h-8"

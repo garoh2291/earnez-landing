@@ -15,8 +15,7 @@ interface FaqData {
 }
 
 export default function Faq() {
-  let [isOpen, setOpen] = useState<boolean>(false);
-  let [activeTab, setActiveTab] = useState<number>(1);
+  const [activeTab, setActiveTab] = useState<number>(1);
 
   return (
     <div className="container relative">

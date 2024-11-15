@@ -1,15 +1,10 @@
 import { BiMoneyWithdraw } from "react-icons/bi";
 import { BsAndroid } from "react-icons/bs";
-import { FaMoneyBill, FaMoneyBillAlt } from "react-icons/fa";
 import {
-  FiDatabase,
   FiEye,
   FiFeather,
   FiHeart,
-  FiMaximize,
   FiMonitor,
-  FiNavigation2,
-  FiPieChart,
   FiSmartphone,
   FiUserCheck,
 } from "react-icons/fi";

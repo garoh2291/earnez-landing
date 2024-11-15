@@ -1,14 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { BiArrowToTop } from "react-icons/bi";
-import { BsArrow90DegUp, BsArrowBarUp, BsArrowUp } from "react-icons/bs";
+import { BsArrowUp } from "react-icons/bs";
 
 export default function ScrollToTop() {
-  let [scrollTop, setScrollTop] = useState(false);
+  const [scrollTop, setScrollTop] = useState(false);
 
   useEffect(() => {
-    let scrollTop = () => {
+    const scrollTop = () => {
       setScrollTop(window.scrollY > 300);
     };
     window.addEventListener("scroll", scrollTop);
@@ -16,7 +15,7 @@ export default function ScrollToTop() {
       window.removeEventListener("scroll", scrollTop);
     };
   });
-  let scrollToTop = () => {
+  const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
