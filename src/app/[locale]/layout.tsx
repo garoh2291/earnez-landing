@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "Turn your Android phone into an automatic income stream with EarnEZ. Earn €0.01-0.03 per SMS test message. No effort required, fast payouts, and complete privacy protection.",
   icons: {
-    icon: "./favicon.ico",
+    icon: "../favicon.ico",
   },
 };
 
