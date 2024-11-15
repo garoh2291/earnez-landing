@@ -14,10 +14,50 @@ const nextConfig = {
                 has: [
                   {
                     type: "host",
-                    value: "es.localhost:3000",
+                    value: "ru.localhost:3000",
                   },
                 ],
-                destination: "/es/:path*",
+                destination: "/ru/:path*",
+              },
+              {
+                source: "/:path*",
+                has: [
+                  {
+                    type: "host",
+                    value: "en.localhost:3000",
+                  },
+                ],
+                destination: "/en/:path*",
+              },
+              {
+                source: "/:path*",
+                has: [
+                  {
+                    type: "host",
+                    value: "localhost:3000",
+                  },
+                ],
+                destination: "/en/:path*",
+              },
+              {
+                source: "/:path*",
+                has: [
+                  {
+                    type: "host",
+                    value: "zh.localhost:3000",
+                  },
+                ],
+                destination: "/zh/:path*",
+              },
+              {
+                source: "/:path*",
+                has: [
+                  {
+                    type: "host",
+                    value: "fa.localhost:3000",
+                  },
+                ],
+                destination: "/fa/:path*",
               },
             ]
           : [],
