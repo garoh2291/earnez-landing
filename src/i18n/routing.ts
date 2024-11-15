@@ -13,7 +13,7 @@ export const routing = defineRouting({
       domain:
         process.env.NODE_ENV === "development"
           ? "localhost:3000"
-          : "example.com",
+          : "earnez-landing.vercel.app",
       defaultLocale: "en",
       locales: ["en"],
     },
@@ -21,7 +21,7 @@ export const routing = defineRouting({
       domain:
         process.env.NODE_ENV === "development"
           ? "en.localhost:3000"
-          : "en.example.com",
+          : "en.earnez-landing.vercel.app",
       defaultLocale: "en",
       locales: ["en"],
     },
@@ -29,7 +29,7 @@ export const routing = defineRouting({
       domain:
         process.env.NODE_ENV === "development"
           ? "es.localhost:3000"
-          : "es.example.com",
+          : "es.earnez-landing.vercel.app",
       defaultLocale: "es",
       locales: ["es"],
     },
@@ -37,7 +37,7 @@ export const routing = defineRouting({
       domain:
         process.env.NODE_ENV === "development"
           ? "germany.localhost:3000"
-          : "germany.example.com",
+          : "germany.earnez-landing.vercel.app",
       defaultLocale: "germany",
       locales: ["germany"],
     },
@@ -45,7 +45,7 @@ export const routing = defineRouting({
       domain:
         process.env.NODE_ENV === "development"
           ? "ar.localhost:3000"
-          : "ar.example.com",
+          : "ar.earnez-landing.vercel.app",
       defaultLocale: "ar",
       locales: ["ar"],
     },
