@@ -7,6 +7,7 @@ import { FiChevronUp, FiDownload } from "react-icons/fi";
 
 import { faq } from "../data/data";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 interface FaqData {
   id: number;
@@ -16,6 +17,7 @@ interface FaqData {
 
 export default function Faq() {
   const [activeTab, setActiveTab] = useState<number>(1);
+  const t = useTranslations();
 
   return (
     <div className="container relative">
@@ -23,7 +25,7 @@ export default function Faq() {
         <div className="relative order-1 md:order-2">
           <div className="relative">
             <Image
-              src="/images/2.png"
+              src="/images/2-min.png"
               width={0}
               height={0}
               sizes="100vw"
@@ -40,7 +42,7 @@ export default function Faq() {
                 <FiDownload className="size-6" />
               </div>
               <div className="flex-1">
-                <h6 className="text-slate-400">Total Users</h6>
+                <h6 className="text-slate-400">{t("total")}</h6>
                 <p className="text-xl font-bold">
                   <CountUp className="counter-value" end={45485} />
                 </p>
@@ -51,15 +53,12 @@ export default function Faq() {
 
         <div className="lg:me-8 order-2 md:order-1">
           <h6 className="text-[#9761FF] uppercase text-sm font-bold tracking-wider mb-3">
-            Frequently Asked Questions
+            {t("faqs-title")}
           </h6>
           <h4 className="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-bold">
-            Have Questions? Look Here
+            {t("faqs-sub")}
           </h4>
-          <p className="text-slate-400 max-w-xl mx-auto">
-            Everything You Need to Know About Earning with EarnEZ - From Getting
-            Started to Maximizing Your Passive Income
-          </p>
+          <p className="text-slate-400 max-w-xl mx-auto">{t("faqs-text")}</p>
 
           <div id="accordion-collapseone" className="mt-8">
             {faq.map((item: FaqData, index: number) => {
@@ -80,7 +79,7 @@ export default function Faq() {
                           : ""
                       }`}
                     >
-                      <span>{item.title}</span>
+                      <span>{t(item.title)}</span>
                       <FiChevronUp
                         className={`size-4 shrink-0 ${
                           activeTab === item.id ? "" : "rotate-180"
@@ -91,7 +90,7 @@ export default function Faq() {
                   <div className={`${activeTab === item.id ? "" : "hidden"}`}>
                     <div className="p-5">
                       <p className="text-slate-400 dark:text-gray-400">
-                        {item.desc}
+                        {t(item.desc)}
                       </p>
                     </div>
                   </div>

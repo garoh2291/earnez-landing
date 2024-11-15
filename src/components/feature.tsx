@@ -3,8 +3,11 @@ import Link from "next/link";
 
 import { feature } from "@/data/data";
 import { IconType } from "react-icons";
+import { useTranslations } from "next-intl";
 
 export default function Feature() {
+  const t = useTranslations("feature-cards");
+
   interface Feature {
     icon: IconType;
     title: string;
@@ -33,9 +36,9 @@ export default function Feature() {
                 href="#"
                 className="text-lg hover:text-[#9761FF] dark:text-white dark:hover:text-[#9761FF] transition-all duration-500 ease-in-out font-semibold"
               >
-                {item.title}
+                {t(item.title)}
               </Link>
-              <p className="text-slate-400 mt-3">{item.desc}</p>
+              <p className="text-slate-400 mt-3">{t(item.desc)}</p>
             </div>
           </div>
         );

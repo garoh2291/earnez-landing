@@ -1,13 +1,15 @@
 import React from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function About() {
+  const t = useTranslations();
   return (
     <div className="grid md:grid-cols-12 grid-cols-1 items-center gap-6">
       <div className="lg:col-span-5 md:col-span-6">
         <div className="pt-6 px-6 rounded-2xl bg-[#FF97FF]/5 dark:bg-[#FF97FF]/10 shadow shadow-[#FF97FF]/20">
           <Image
-            src="/images/1.png"
+            src="/images/1-min.png"
             width={0}
             height={0}
             sizes="100vw"
@@ -20,29 +22,26 @@ export default function About() {
       <div className="lg:col-span-7 md:col-span-6">
         <div className="lg:ms-10">
           <h6 className="text-[#9761FF] uppercase text-sm font-bold tracking-wider mb-3">
-            About EarnEZ
+            {t("about-title")}
           </h6>
           <h4 className="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-bold">
-            How You Earn Money
+            {t("about-sub")}
             <br />
           </h4>
-          <p className="text-slate-400 max-w-xl">
-            We connect mobile network operators with real users like you,
-            helping them test their SMS services while you earn.
-          </p>
+          <p className="text-slate-400 max-w-xl">{t("about-text")}</p>
 
           <ul className="list-none text-slate-400 mt-6">
             <li className="mb-1 flex">
               <i className="mdi mdi-check text-[#9761FF] text-xl me-2"></i>{" "}
-              Enable SMS sending to increase your earnings
+              {t("about-list-1")}
             </li>
             <li className="mb-1 flex ms-0">
               <i className="mdi mdi-check text-[#9761FF] text-xl me-2"></i>{" "}
-              Participate in call testing for additional income
+              {t("about-list-2")}
             </li>
             <li className="mb-1 flex ms-0">
               <i className="mdi mdi-check text-[#9761FF] text-xl me-2"></i>{" "}
-              Withdraw earnings starting from just €2
+              {t("about-list-3")}
             </li>
           </ul>
         </div>

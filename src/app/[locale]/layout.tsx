@@ -38,7 +38,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       className="dark scroll-smooth"
-      dir={locale === "ar" ? "rtl" : "ltr"}
+      dir={locale === "fa" ? "rtl" : "ltr"}
     >
       <body
         className={` ${manrope.variable} font-manrope text-base text-slate-900 dark:text-white dark:bg-slate-900`}

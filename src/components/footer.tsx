@@ -1,8 +1,12 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { use } from "react";
+import { HiHeart } from "react-icons/hi";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations();
   return (
     <footer className="py-8 bg-slate-800 dark:bg-gray-900">
       <div className="container">
@@ -30,10 +34,10 @@ export default function Footer() {
 
           <div className="md:col-span-9 md:mt-0 mt-8">
             <div className="md:text-right text-center ">
-              <p className="text-gray-400">
-                © {new Date().getFullYear()} EarnEz. Design & Develop with{" "}
-                <i className="mdi mdi-heart text-[#9761FF]"></i> by{" "}
-                <span className="text-reset">Hook</span>
+              <p className="text-gray-400 flex items-center w-full gap-1 justify-end">
+                © {new Date().getFullYear()} {t("footer-1")}
+                <HiHeart className="text-[#9761FF]" />
+                {t("footer-2")}
               </p>
             </div>
           </div>

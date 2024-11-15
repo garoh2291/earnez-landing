@@ -19,7 +19,7 @@ export default function Switcher() {
 
   return (
     <>
-      <div className="fixed top-1/4 -right-3 z-50">
+      <div className="fixed top-1/4 -right-0 z-50">
         <span className="relative inline-block rotate-90">
           <input
             type="checkbox"

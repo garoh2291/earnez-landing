@@ -1,7 +1,65 @@
 {
-  "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page",
-    "home": "Home"
-  }
+  "home": "Home",
+  "features": "Features",
+  "faqs": "FAQs",
+  "download": "Download",
+  "hero-main": "Earn Money Passively with Your Phone",
+  "hero-sub": "Turn your Android device into a passive income stream by helping mobile operators test their SMS services. No effort required - earn up to €0.03 per message automatically.",
+  "features-title": "Our Features",
+  "features-sub": "Start Earning Effortlessly Today",
+  "features-text": "Simple, secure, and completely free - discover how EarnEZ turns your phone into an automatic income generator.",
+  "feature-cards": {
+    "card1": {
+      "title": "Android Exclusive",
+      "desc": "Specifically designed for Android devices, our app utilizes the platform's unique SMS capabilities to help you earn money automatically."
+    },
+    "card2": {
+      "title": "Privacy Protected",
+      "desc": "We only access our test messages - your personal data and private SMS remain completely secure and protected under GDPR regulations.",
+      "icon": "fas fa-lock"
+    },
+    "card3": {
+      "title": "Passive Income",
+      "desc": "Earn €0.01-0.03 per message automatically with zero effort. Just install the app and watch your earnings grow as you receive test SMS.",
+      "icon": "fas fa-stopwatch"
+    },
+    "card4": {
+      "title": "Quick Payments",
+      "desc": "Withdraw your earnings once you reach €2, with most payments processed within 3 hours and guaranteed within 12 hours maximum.",
+      "icon": "fas fa-stopwatch"
+    }
+  },
+  "about-title": "About EarnEZ",
+  "about-sub": "How You Earn Money",
+  "about-text": "We connect mobile network operators with real users like you, helping them test their SMS services while you earn.",
+  "about-list-1": "Enable SMS sending to increase your earnings",
+  "about-list-2": "Participate in call testing for additional income",
+  "about-list-3": " Withdraw earnings starting from just €2",
+  "faqs-title": "Frequently Asked Questions",
+  "faqs-sub": "Have Questions? Look Here",
+  "faqs-text": " Everything You Need to Know About Earning with EarnEZ - From Getting Started to Maximizing Your Passive Income",
+  "faqs-item1": {
+    "title": "How does EarnEZ generate income?",
+    "desc": "Mobile operators pay us to test their SMS services across different countries. When you install our app, your phone receives these test messages, and you earn €0.01-0.03 for each message automatically."
+  },
+  "faqs-item2": {
+    "title": "Is my privacy protected when using EarnEZ?",
+    "desc": "Yes, we fully comply with GDPR regulations and only access our own test messages. Your personal SMS and data remain completely private and secure. We simply use your number for testing purposes."
+  },
+  "faqs-item3": {
+    "title": "How do I start earning with EarnEZ?",
+    "desc": "Simply download our APK from the website and install it on your Android device. Once installed, the app works automatically in the background. No additional actions needed - you'll start earning right away."
+  },
+  "faqs-item4": {
+    "title": "When and how do I receive my payments?",
+    "desc": "You can withdraw your earnings once you reach €2. Most payments are processed within 3 hours, with a maximum waiting time of 12 hours. No credit card or bank details needed to get started."
+  },
+  "total": "Total Users",
+  "download-title": "Download EarnEZ",
+  "download-sub": " Start Earning in Minutes with <br /> Your Android Phone",
+  "download-text": "Transform your Android device into a passive income generator. Download our APK directly and start earning automatically with SMS testing.",
+  "download-sub2": "Android Exclusive • Instant Setup • Secure Testing",
+  "download-apk": "Download Free APK ",
+  "footer-1": "EarnEz. Design & Develop with",
+  "footer-2": "by Hook"
 }

@@ -19,7 +19,7 @@ export default function Navbar({
 }) {
   const [menu, setMenu] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean>(false);
-  const t = useTranslations("HomePage");
+  const t = useTranslations();
 
   useEffect(() => {
     const handlerScroll = () => {
@@ -103,7 +103,7 @@ export default function Navbar({
                 duration={500}
                 to="features"
               >
-                Features
+                {t("features")}
               </Link1>
             </li>
 
@@ -116,7 +116,7 @@ export default function Navbar({
                 duration={500}
                 to="faqs"
               >
-                FAQs
+                {t("faqs")}
               </Link1>
             </li>
             <li className="nav-item ms-0">
@@ -128,7 +128,7 @@ export default function Navbar({
                 duration={500}
                 to="download"
               >
-                Download
+                {t("download")}
               </Link1>
             </li>
           </ul>

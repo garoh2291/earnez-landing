@@ -9,9 +9,10 @@ import Download from "@/components/download";
 import Footer from "@/components/footer";
 import ScrollToTop from "@/components/scroll-to-top";
 import Switcher from "@/components/switcher";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
-  // const t = useTranslations("HomePage");
+  const t = useTranslations();
   return (
     <>
       <Navbar
@@ -29,18 +30,14 @@ export default function Home() {
           <div className="grid md:grid-cols-2 grid-cols-1 items-center mt-6 gap-[30px] relative">
             <div className="md:me-6">
               <h4 className="font-bold lg:leading-normal leading-normal text-[38px] lg:text-[42px] mb-5">
-                Earn Money Passively with Your Phone
+                {t("hero-main")}
               </h4>
-              <p className="text-slate-400 text-lg max-w-xl">
-                Turn your Android device into a passive income stream by helping
-                mobile operators test their SMS services. No effort required -
-                earn up to €0.03 per message automatically.
-              </p>
+              <p className="text-slate-400 text-lg max-w-xl">{t("hero-sub")}</p>
 
               <div className="mt-6">
                 <Link href="#">
                   <button className="bg-[#9761FF] text-white py-2 rounded-md  w-[152px] ">
-                    Download
+                    {t("download")}
                   </button>
                 </Link>
               </div>
@@ -68,15 +65,14 @@ export default function Home() {
         <div className="container relative">
           <div className="grid grid-cols-1 pb-6 text-center">
             <h6 className="text-[#9761FF] uppercase text-sm font-bold tracking-wider mb-3">
-              Our Features
+              {t("features-title")}
             </h6>
             <h4 className="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-bold">
-              Start Earning Effortlessly Today
+              {t("features-sub")}
             </h4>
 
             <p className="text-slate-400 max-w-xl mx-auto">
-              Simple, secure, and completely free - discover how EarnEZ turns
-              your phone into an automatic income generator.
+              {t("features-text")}
             </p>
           </div>
 

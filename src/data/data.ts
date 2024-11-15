@@ -13,26 +13,26 @@ import { MdOutlinePrivacyTip, MdPayments } from "react-icons/md";
 export const feature = [
   {
     icon: BsAndroid,
-    title: "Android Exclusive",
-    desc: "Specifically designed for Android devices, our app utilizes the platform's unique SMS capabilities to help you earn money automatically.",
+    title: "card1.title",
+    desc: "card1.desc",
     active: true,
   },
   {
     icon: MdOutlinePrivacyTip,
-    title: "Privacy Protected",
-    desc: "We only access our test messages - your personal data and private SMS remain completely secure and protected under GDPR regulations.",
+    title: "card2.title",
+    desc: "card2.desc",
     active: false,
   },
   {
     icon: BiMoneyWithdraw,
-    title: "Passive Income",
-    desc: "Earn €0.01-0.03 per message automatically with zero effort. Just install the app and watch your earnings grow as you receive test SMS.",
+    title: "card3.title",
+    desc: "card3.desc",
     active: true,
   },
   {
     icon: MdPayments,
-    title: "Quick Payments",
-    desc: "Withdraw your earnings once you reach €2, with most payments processed within 3 hours and guaranteed within 12 hours maximum.",
+    title: "card4.title",
+    desc: "card4.desc",
     active: false,
   },
 ];
@@ -86,23 +86,23 @@ export const screenshotImg = [
 export const faq = [
   {
     id: 1,
-    title: "How does EarnEZ generate income?",
-    desc: "Mobile operators pay us to test their SMS services across different countries. When you install our app, your phone receives these test messages, and you earn €0.01-0.03 for each message automatically.",
+    title: "faqs-item1.title",
+    desc: "faqs-item1.desc",
   },
   {
     id: 2,
-    title: "Is my privacy protected when using EarnEZ?",
-    desc: "Yes, we fully comply with GDPR regulations and only access our own test messages. Your personal SMS and data remain completely private and secure. We simply use your number for testing purposes.",
+    title: "faqs-item2.title",
+    desc: "faqs-item2.desc",
   },
   {
     id: 3,
-    title: "How do I start earning with EarnEZ?",
-    desc: "Simply download our APK from the website and install it on your Android device. Once installed, the app works automatically in the background. No additional actions needed - you'll start earning right away.",
+    title: "faqs-item3.title",
+    desc: "faqs-item3.desc",
   },
   {
     id: 4,
-    title: "When and how do I receive my payments?",
-    desc: "You can withdraw your earnings once you reach €2. Most payments are processed within 3 hours, with a maximum waiting time of 12 hours. No credit card or bank details needed to get started.",
+    title: "faqs-item4.title",
+    desc: "faqs-item4.desc",
   },
 ];
 
