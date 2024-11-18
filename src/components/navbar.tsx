@@ -1,12 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Link as Link1 } from "react-scroll";
-
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { MdMenu } from "react-icons/md";
 import LogoDark from "@/app/icons/LogoDark";
-import LogoLight from "@/app/icons/LogoLight";
+// import LogoLight from "@/app/icons/LogoLight";
 
 export default function Navbar({
   navLight,
@@ -95,7 +94,18 @@ export default function Navbar({
                 {t("features")}
               </Link1>
             </li>
-
+            <li className="nav-item ms-0">
+              <Link1
+                className="nav-link"
+                activeClass="active"
+                spy={true}
+                smooth={true}
+                duration={500}
+                to="about"
+              >
+                {t("about")}
+              </Link1>
+            </li>
             <li className="nav-item ms-0">
               <Link1
                 className="nav-link"
