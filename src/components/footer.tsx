@@ -1,12 +1,13 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { HiHeart } from "react-icons/hi";
 import { useTranslations } from "next-intl";
+import LogoDark from "@/app/icons/LogoDark";
 
 export default function Footer() {
   const t = useTranslations();
+
   return (
     <footer className="py-8 bg-slate-800 dark:bg-gray-900">
       <div className="container">
@@ -16,19 +17,7 @@ export default function Footer() {
               className="navbar-brand md:me-8 flex items-center gap-2"
               href="/"
             >
-              <Image
-                src="/images/logo-garnik.png"
-                width={40}
-                height={40}
-                className="inline-block w-[40px] h-auto"
-                alt=""
-              />
-              <p className=" text-2xl text-white">
-                earn
-                <span className="font-bold bg-gradient-to-r from-purple-500 via-fuchsia-400 to-pink-400 text-transparent bg-clip-text">
-                  ez
-                </span>
-              </p>
+              <LogoDark className="h-8" />
             </Link>
           </div>
 
