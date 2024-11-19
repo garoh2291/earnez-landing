@@ -1,4 +1,3 @@
-// import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/navbar";
@@ -81,7 +80,7 @@ export default function Home() {
       </section>
       <section
         className="relative md:py-24 py-16 bg-slate-50/50 dark:bg-slate-800/20"
-        id="features"
+        id="about"
       >
         <div className="container relative  ">
           <About />

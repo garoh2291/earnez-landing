@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Link as Link1 } from "react-scroll";
-
 import Link from "next/link";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { MdMenu } from "react-icons/md";
+import LogoDark from "@/app/icons/LogoDark";
+// import LogoLight from "@/app/icons/LogoLight";
 
 export default function Navbar({
   navLight,
@@ -44,22 +44,10 @@ export default function Navbar({
       id="navbar"
     >
       <div className="container relative flex flex-wrap items-center justify-between">
-        <Link className="navbar-brand md:me-8 flex items-center gap-2" href="/">
-          <Image
-            src="/images/logo-garnik.png"
-            width={40}
-            height={40}
-            className="inline-block w-[40px] h-auto"
-            alt=""
-          />
-          <p className="text-2xl">
-            earn
-            <span className="font-bold bg-gradient-to-r from-purple-500 via-fuchsia-400 to-pink-400 text-transparent bg-clip-text">
-              ez
-            </span>
-          </p>
+        <Link className="navbar-brand md:me-8 flex items-center" href="/">
+            {/* <LogoLight className="h-8" /> */}
+            <LogoDark className="h-8" />
         </Link>
-
         <div className="nav-icons flex items-center lg_992:order-2 md:ms-6">
           <button
             type="button"
@@ -106,7 +94,18 @@ export default function Navbar({
                 {t("features")}
               </Link1>
             </li>
-
+            <li className="nav-item ms-0">
+              <Link1
+                className="nav-link"
+                activeClass="active"
+                spy={true}
+                smooth={true}
+                duration={500}
+                to="about"
+              >
+                {t("about")}
+              </Link1>
+            </li>
             <li className="nav-item ms-0">
               <Link1
                 className="nav-link"
