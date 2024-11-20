@@ -156,6 +156,7 @@ export default function Navbar({
                 activeClass="active"
                 spy={true}
                 smooth={true}
+                offset={-100}
                 duration={500}
                 to="faqs"
               >
@@ -168,6 +169,7 @@ export default function Navbar({
                 activeClass="active"
                 spy={true}
                 smooth={true}
+                offset={-100}
                 duration={500}
                 to="download"
               >
