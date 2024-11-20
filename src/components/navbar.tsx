@@ -117,7 +117,6 @@ export default function Navbar({
             <li className="nav-item ms-0">
               <Link1
                 className="nav-link"
-                activeClass="active"
                 spy={true}
                 smooth={true}
                 duration={500}
@@ -129,7 +128,6 @@ export default function Navbar({
             <li className="nav-item ms-0">
               <Link1
                 className="nav-link"
-                activeClass="active"
                 spy={true}
                 smooth={true}
                 duration={500}
@@ -141,7 +139,6 @@ export default function Navbar({
             <li className="nav-item ms-0">
               <Link1
                 className="nav-link"
-                activeClass="active"
                 spy={true}
                 smooth={true}
                 duration={500}
@@ -153,10 +150,8 @@ export default function Navbar({
             <li className="nav-item ms-0">
               <Link1
                 className="nav-link"
-                activeClass="active"
                 spy={true}
                 smooth={true}
-                offset={-100}
                 duration={500}
                 to="faqs"
               >
@@ -166,10 +161,8 @@ export default function Navbar({
             <li className="nav-item ms-0">
               <Link1
                 className="nav-link"
-                activeClass="active"
                 spy={true}
                 smooth={true}
-                offset={-100}
                 duration={500}
                 to="download"
               >

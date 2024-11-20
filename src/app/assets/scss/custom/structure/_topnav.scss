@@ -9,14 +9,6 @@
       @apply mt-4 flex flex-row overflow-y-scroll h-24;
       .nav-link {
         @apply block p-3 text-[14px] text-slate-900 tracking-wider hover:text-[#9761FF] dark:text-white/60 dark:hover:text-white font-semibold;
-        &.active {
-          @apply text-[#9761FF] dark:text-white;
-        }
-      }
-      .active {
-        .nav-link {
-          @apply text-[#9761FF] dark:text-white;
-        }
       }
     }
     &.ms-auto {
@@ -114,15 +106,6 @@
         &.nav-light {
           .nav-link {
             @apply block p-3 text-white/60 hover:text-white;
-
-            &.active {
-              @apply text-white;
-            }
-          }
-          .active {
-            .nav-link {
-              @apply text-white;
-            }
           }
         }
       }
@@ -138,27 +121,11 @@
       .navbar-nav {
         .nav-link {
           @apply text-slate-900 dark:text-white/60;
-          &.active {
-            @apply text-[#9761FF];
-          }
-        }
-        .active {
-          .nav-link {
-            @apply text-[#9761FF];
-          }
         }
 
         &.nav-light {
           .nav-link {
             @apply text-slate-900 hover:text-[#9761FF] dark:text-white/60 dark:hover:text-white;
-            &.active {
-              @apply text-[#9761FF] dark:text-white;
-            }
-          }
-          .active {
-            .nav-link {
-              @apply text-[#9761FF] dark:text-white;
-            }
           }
         }
       }
@@ -174,15 +141,8 @@
         @apply block h-full max-h-80;
         .nav-link {
           @apply text-slate-900;
-          &.active {
-            @apply text-[#9761FF];
-          }
         }
-        .active {
-          .nav-link {
-            @apply text-[#9761FF];
-          }
-        }
+
         .menu-social {
           @apply mb-5 #{!important};
         }
