@@ -37,16 +37,37 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className="dark scroll-smooth"
+      className="scroll-smooth"
       dir={locale === "fa" ? "rtl" : "ltr"}
     >
       <body
-        className={` ${manrope.variable} font-manrope text-base text-slate-900 dark:text-white dark:bg-slate-900`}
+        className={`${manrope.variable} font-manrope text-base text-slate-900 dark:text-white dark:bg-slate-900`}
       >
+        <ThemeScript />
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
       </body>
     </html>
+  );
+}
+
+function ThemeScript() {
+  return (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `
+          (function() {
+            try {
+              const savedTheme = localStorage.getItem('theme');
+              document.documentElement.className = savedTheme || 'dark';
+            } catch (e) {
+              console.error('Error accessing localStorage:', e);
+              document.documentElement.className = 'dark';
+            }
+          })();
+        `,
+      }}
+    />
   );
 }

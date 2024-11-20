@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { MdMenu } from "react-icons/md";
 import LogoDark from "@/app/icons/LogoDark";
-// import LogoLight from "@/app/icons/LogoLight";
+import LogoLight from "@/app/icons/LogoLight";
 
 export default function Navbar({
   navLight,
@@ -19,9 +19,20 @@ export default function Navbar({
 }) {
   const [menu, setMenu] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean>(false);
+  const [theme, setTheme] = useState<string>("dark");
   const t = useTranslations();
 
   useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    setTheme(savedTheme);
+
+    const handleThemeChange = () => {
+      const currentTheme = localStorage.getItem("theme") || "dark";
+      setTheme(currentTheme);
+    };
+
+    window.addEventListener("storage", handleThemeChange);
+
     const handlerScroll = () => {
       if (window.scrollY > 50) {
         setScroll(true);
@@ -31,10 +42,38 @@ export default function Navbar({
     };
 
     window.addEventListener("scroll", handlerScroll);
+
+    // Cleanup
     return () => {
       window.removeEventListener("scroll", handlerScroll);
+      window.removeEventListener("storage", handleThemeChange);
     };
-  });
+  }, []);
+
+  // Create a MutationObserver to watch for theme changes via class changes
+  useEffect(() => {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.attributeName === "class" &&
+          mutation.target instanceof HTMLElement
+        ) {
+          const htmlElement = mutation.target;
+          const currentTheme = htmlElement.classList.contains("dark")
+            ? "dark"
+            : "light";
+          setTheme(currentTheme);
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <nav
@@ -45,9 +84,14 @@ export default function Navbar({
     >
       <div className="container relative flex flex-wrap items-center justify-between">
         <Link className="navbar-brand md:me-8 flex items-center" href="/">
-            {/* <LogoLight className="h-8" /> */}
+          {theme === "dark" ? (
             <LogoDark className="h-8" />
+          ) : (
+            <LogoLight className="h-8" />
+          )}
         </Link>
+
+        {/* Rest of your navbar code remains the same */}
         <div className="nav-icons flex items-center lg_992:order-2 md:ms-6">
           <button
             type="button"
