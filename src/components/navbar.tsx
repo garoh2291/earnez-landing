@@ -43,14 +43,12 @@ export default function Navbar({
 
     window.addEventListener("scroll", handlerScroll);
 
-    // Cleanup
     return () => {
       window.removeEventListener("scroll", handlerScroll);
       window.removeEventListener("storage", handleThemeChange);
     };
   }, []);
 
-  // Create a MutationObserver to watch for theme changes via class changes
   useEffect(() => {
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
@@ -91,7 +89,6 @@ export default function Navbar({
           )}
         </Link>
 
-        {/* Rest of your navbar code remains the same */}
         <div className="nav-icons flex items-center lg_992:order-2 md:ms-6">
           <button
             type="button"

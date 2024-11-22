@@ -44,7 +44,7 @@ export default function Home() {
 
             <div className="relative">
               <Image
-                src="/images/s24.png"
+                src="/images/mobile.png"
                 width={0}
                 height={0}
                 sizes="100vw"
