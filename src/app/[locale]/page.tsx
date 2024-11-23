@@ -59,7 +59,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <section className="relative md:py-24 py-16" id="features">
         <div className="container relative">
           <div className="grid grid-cols-1 pb-6 text-center">
@@ -69,12 +68,10 @@ export default function Home() {
             <h4 className="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-bold">
               {t("features-sub")}
             </h4>
-
             <p className="text-slate-400 max-w-xl mx-auto">
               {t("features-text")}
             </p>
           </div>
-
           <Feature />
         </div>
       </section>
