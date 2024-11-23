@@ -1,10 +1,7 @@
 "use client";
-import React, { useState } from "react";
-
+import React, { useState, useRef, useEffect } from "react";
 import CountUp from "react-countup";
-
 import { FiChevronUp, FiDownload } from "react-icons/fi";
-
 import { faq } from "../data/data";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -17,13 +14,36 @@ interface FaqData {
 
 export default function Faq() {
   const [activeTab, setActiveTab] = useState<number>(1);
+  const [heights, setHeights] = useState<{ [key: number]: number }>({});
   const t = useTranslations();
+
+  const contentRefs = useRef<{ [key: number]: HTMLDivElement | null }>({});
+
+  const setRef = (id: number) => (el: HTMLDivElement | null) => {
+    contentRefs.current[id] = el;
+  };
+
+  useEffect(() => {
+    const updateHeights = () => {
+      const newHeights: { [key: number]: number } = {};
+      Object.entries(contentRefs.current).forEach(([id, el]) => {
+        if (el) {
+          newHeights[Number(id)] = el.scrollHeight;
+        }
+      });
+      setHeights(newHeights);
+    };
+
+    updateHeights();
+    window.addEventListener("resize", updateHeights);
+    return () => window.removeEventListener("resize", updateHeights);
+  }, []);
 
   return (
     <div className="container relative">
-      <div className="grid md:grid-cols-2 grid-cols-1 items-center gap-[30px]">
-        <div className="relative order-1 md:order-2">
-          <div className="relative h-[690px] flex items-center justify-center">
+      <div className="grid md:grid-cols-2 grid-cols-1 items-start gap-[30px]">
+        <div className="order-1 md:order-2 h-[690px] flex items-center justify-center sticky top-24">
+          <div className="relative">
             <Image
               src="/images/2-min.png"
               width={0}
@@ -57,7 +77,6 @@ export default function Faq() {
             {t("faqs-sub")}
           </h4>
           <p className="text-slate-400 max-w-xl mx-auto">{t("faqs-text")}</p>
-
           <div id="accordion-collapseone" className="mt-8">
             {faq.map((item: FaqData, index: number) => {
               return (
@@ -71,7 +90,7 @@ export default function Faq() {
                     <button
                       type="button"
                       onClick={() => setActiveTab(item.id)}
-                      className={`flex justify-between items-center p-5 w-full font-medium text-start ${
+                      className={`flex justify-between items-center p-5 w-full font-medium text-start transition-colors duration-300 ${
                         activeTab === item.id
                           ? "bg-slate-50/50 dark:bg-slate-800/20 text-[#9761FF]"
                           : ""
@@ -79,13 +98,24 @@ export default function Faq() {
                     >
                       <span>{t(item.title)}</span>
                       <FiChevronUp
-                        className={`size-4 shrink-0 ${
+                        className={`size-4 shrink-0 transition-transform duration-300 ease-in-out ${
                           activeTab === item.id ? "" : "rotate-180"
                         }`}
                       />
                     </button>
                   </h2>
-                  <div className={`${activeTab === item.id ? "" : "hidden"}`}>
+                  <div
+                    className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                      activeTab === item.id ? "opacity-100" : "opacity-0"
+                    }`}
+                    style={{
+                      maxHeight:
+                        activeTab === item.id
+                          ? `${heights[item.id] || 0}px`
+                          : "0px",
+                    }}
+                    ref={setRef(item.id)}
+                  >
                     <div className="p-5">
                       <p className="text-slate-400 dark:text-gray-400">
                         {t(item.desc)}
