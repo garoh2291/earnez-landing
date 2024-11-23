@@ -8,7 +8,6 @@ export default function ScrollToTop() {
   const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
-    let lastScrollTop = 0;
     let ticking = false;
 
     const handleScroll = () => {
@@ -17,7 +16,6 @@ export default function ScrollToTop() {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           setVisible(scrollTop > 300);
-          lastScrollTop = scrollTop;
           ticking = false;
         });
         ticking = true;
