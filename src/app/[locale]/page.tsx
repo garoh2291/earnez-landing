@@ -93,7 +93,6 @@ export default function Home() {
         <Download />
       </section>
       <Footer />
-
       <ScrollToTop />
       <Switcher />
     </>
