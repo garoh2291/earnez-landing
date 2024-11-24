@@ -6,7 +6,6 @@ export default function Switcher() {
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
-    // On mount, read theme from localStorage or default to 'dark'
     const savedTheme = localStorage.getItem("theme") || "dark";
     setTheme(savedTheme);
     document.documentElement.className = savedTheme;
@@ -20,8 +19,8 @@ export default function Switcher() {
   };
 
   return (
-    <div className="fixed top-1/4 -right-0 z-50">
-      <span className="relative inline-block rotate-90">
+    <div className="z-50 lg_992:fixed lg_992:top-1/4 lg_992:-right-0">
+      <span className="relative inline-block lg_992:rotate-90">
         <input
           type="checkbox"
           className="checkbox opacity-0 absolute"

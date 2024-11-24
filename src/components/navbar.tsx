@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { MdMenu } from "react-icons/md";
 import LogoDark from "@/app/icons/LogoDark";
 import LogoLight from "@/app/icons/LogoLight";
+import Switcher from "./switcher";
 
 export default function Navbar({
   navLight,
@@ -89,7 +90,7 @@ export default function Navbar({
           )}
         </Link>
 
-        <div className="nav-icons flex items-center lg_992:order-2 md:ms-6">
+        <div className="nav-icons flex gap-2 items-center lg_992:order-2 md:ms-6">
           <button
             type="button"
             className="collapse-btn inline-flex items-center ms-2 text-slate-900 dark:text-white lg_992:hidden"
@@ -99,8 +100,8 @@ export default function Navbar({
             <i className="mdi mdi-menu text-[24px]"></i>
             <MdMenu className="text-[24px]" />
           </button>
+          <Switcher />
         </div>
-
         <div
           className={`navigation lg_992:order-1 lg_992:flex  ${
             navCenter ? "" : "ms-auto"

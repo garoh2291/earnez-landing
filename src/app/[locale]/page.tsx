@@ -94,7 +94,6 @@ export default function Home() {
       </section>
       <Footer />
       <ScrollToTop />
-      <Switcher />
     </>
   );
 }
