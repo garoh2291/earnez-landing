@@ -41,8 +41,8 @@ export default function Faq() {
 
   return (
     <div className="container relative">
-      <div className="grid md:grid-cols-2 grid-cols-1 items-start gap-[30px]">
-        <div className="order-1 md:order-2 h-[690px] flex items-center justify-center sticky top-24">
+      <div className="grid grid-cols-1 items-start gap-[180px] md:gap-[30px] md:grid-cols-2">
+        <div className="order-1 md:order-2 md:h-[690px] flex items-center justify-center sticky top-24">
           <div className="relative">
             <Image
               src="/images/2-min.png"
@@ -50,12 +50,12 @@ export default function Faq() {
               height={0}
               sizes="100vw"
               style={{ width: "100%", height: "auto" }}
-              className="mx-auto md:max-w-xs lg:max-w-sm"
+              className="mx-auto max-w-xs lg:max-w-sm"
               alt=""
             />
           </div>
-          <div className="overflow-hidden absolute md:size-[500px] size-[400px] bg-gradient-to-tl to-[#FF97FF]/20 via-[#9761FF]/70 from-[#9761FF] bottom-1/2 translate-y-1/2 md:start-0 start-1/2 ltr:md:translate-x-0 ltr:-translate-x-1/2 rtl:md:translate-x-0 rtl:translate-x-1/2 -z-1 shadow-md shadow-red-500/10 rounded-full"></div>
-          <div className="absolute bottom-20 md:start-0 -start-5 p-4 rounded-lg shadow-md dark:shadow-gray-800 bg-white dark:bg-slate-900 w-52 m-3">
+          <div className="overflow-hidden absolute size-[400px] md:size-[500px] bg-gradient-to-tl to-[#FF97FF]/20 via-[#9761FF]/70 from-[#9761FF] bottom-1/2 translate-y-1/2 md:start-0 start-1/2 ltr:md:translate-x-0 ltr:-translate-x-1/2 rtl:md:translate-x-0 rtl:translate-x-1/2 -z-1 shadow-md shadow-red-500/10 rounded-full"></div>
+          <div className="absolute -bottom-20 md:bottom-20 md:start-0 -start-5 p-4 rounded-lg shadow-md dark:shadow-gray-800 bg-white dark:bg-slate-900 w-52 m-3">
             <div className="flex items-center">
               <div className="flex items-center justify-center size-[65px] bg-[#9761FF]/5 text-[#9761FF] text-center rounded-full me-3">
                 <FiDownload className="size-6" />
@@ -69,7 +69,7 @@ export default function Faq() {
             </div>
           </div>
         </div>
-        <div className="lg:me-8 order-2 md:order-1">
+        <div className="order-2 lg:me-8 md:order-1">
           <h6 className="text-[#9761FF] uppercase text-sm font-bold tracking-wider mb-3">
             {t("faqs-title")}
           </h6>
