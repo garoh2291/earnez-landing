@@ -7,7 +7,6 @@ import Faq from "@/components/faq";
 import Download from "@/components/download";
 import Footer from "@/components/footer";
 import ScrollToTop from "@/components/scroll-to-top";
-import Switcher from "@/components/switcher";
 import { useTranslations } from "next-intl";
 
 export default function Home() {
