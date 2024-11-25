@@ -68,7 +68,7 @@ const config: Config = {
 
   plugins: [
     require("@tailwindcss/forms")({
-      strategy: "class", // only generate classes
+      strategy: "class",
     }),
   ],
 };

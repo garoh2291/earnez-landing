@@ -67,21 +67,17 @@ function ThemeScript() {
               if (savedTheme) {
                 document.documentElement.className = savedTheme;
               } else {
-                // Check system preference
                 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
                 document.documentElement.className = prefersDark ? 'dark' : 'light';
-                // Optionally save the system preference to localStorage
                 localStorage.setItem('theme', prefersDark ? 'dark' : 'light');
               }
             } catch (e) {
               console.error('Error accessing localStorage:', e);
-              // Fallback to system preference if localStorage fails
               const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
               document.documentElement.className = prefersDark ? 'dark' : 'light';
             }
           })();
 
-          // Listen for system theme changes when no manual preference is set
           try {
             const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
             mediaQuery.addEventListener('change', function(e) {

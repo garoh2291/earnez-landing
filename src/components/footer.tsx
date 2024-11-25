@@ -9,22 +9,22 @@ export default function Footer() {
   const t = useTranslations();
 
   return (
-    <footer className="py-8 bg-slate-800 dark:bg-gray-900">
+    <footer className="py-6 md:py-8 bg-slate-800 dark:bg-gray-900">
       <div className="container">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="md:col-span-3">
             <Link
-              className="navbar-brand md:me-8 flex items-center gap-2"
+              className="navbar-brand md:me-8 flex items-center gap-1 md:gap-2"
               href="/"
             >
-              <LogoDark className="h-8" />
+              <LogoDark className="h-6 md:h-8" />
             </Link>
           </div>
-          <div className="xl:mr-0 lg:mr-6 md:mr-12 md:col-span-9 sm:mt-0 mt-8">
-            <div className="md:text-right text-center ">
-              <p className="text-gray-400 flex items-center w-full gap-1 justify-end">
+          <div className="xl:mr-0 lg:mr-6 md:mr-12 md:col-span-9 mt-4 md:mt-0">
+            <div className="text-center md:text-right">
+              <p className="text-gray-400 text-sm md:text-base flex items-center w-full gap-1 justify-center md:justify-end">
                 © {new Date().getFullYear()} {t("footer-1")}
-                <HiHeart className="text-[#9761FF]" />
+                <HiHeart className="text-[#9761FF] text-sm md:text-base" />
                 {t("footer-2")}
               </p>
             </div>

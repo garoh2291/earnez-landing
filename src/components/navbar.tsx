@@ -145,6 +145,7 @@ export default function Navbar({
                 smooth={true}
                 duration={500}
                 to="features"
+                onClick={() => setMenu(!menu)}
               >
                 {t("features")}
               </Link1>
@@ -156,6 +157,7 @@ export default function Navbar({
                 smooth={true}
                 duration={500}
                 to="about"
+                onClick={() => setMenu(!menu)}
               >
                 {t("about")}
               </Link1>
@@ -167,6 +169,7 @@ export default function Navbar({
                 smooth={true}
                 duration={500}
                 to="faqs"
+                onClick={() => setMenu(!menu)}
               >
                 {t("faqs")}
               </Link1>
@@ -178,6 +181,7 @@ export default function Navbar({
                 smooth={true}
                 duration={500}
                 to="download"
+                onClick={() => setMenu(!menu)}
               >
                 {t("download")}
               </Link1>

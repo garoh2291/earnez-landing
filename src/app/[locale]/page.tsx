@@ -80,7 +80,7 @@ export default function Home() {
           <About />
         </div>
       </section>
-      <section className="relative overflow-hidden md:py-24 py-16" id="faqs">
+      <section className="relative overflow-hidden md:py-24 pb-16" id="faqs">
         <Faq />
       </section>
       <section

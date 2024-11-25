@@ -9,7 +9,7 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 export default function Download() {
   const t = useTranslations();
   return (
-    <div className="container relative py-[70px]">
+    <div className="container relative py-1 md:py-[70px]">
       <div className="grid md:grid-cols-12 grid-cols-1 items-center gap-6">
         <div className="lg:col-span-5 md:col-span-6">
           <div className="pt-6 px-6 rounded-2xl bg-[#FF97FF]/5 dark:bg-[#FF97FF]/10 shadow shadow-[#FF97FF]/20">

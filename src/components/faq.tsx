@@ -42,7 +42,7 @@ export default function Faq() {
   return (
     <div className="container relative">
       <div className="grid grid-cols-1 items-start gap-[180px] md:gap-[30px] md:grid-cols-2">
-        <div className="order-1 md:order-2 md:h-[690px] flex items-center justify-center sticky top-24">
+        <div className="order-1 md:order-2 md:h-[690px] flex items-center justify-center sticky top-24 mb-16 md:mb-0">
           <div className="relative">
             <Image
               src="/images/2-min.png"
