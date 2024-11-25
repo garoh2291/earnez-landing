@@ -60,12 +60,36 @@ function ThemeScript() {
           (function() {
             try {
               const savedTheme = localStorage.getItem('theme');
-              document.documentElement.className = savedTheme || 'dark';
+              if (savedTheme) {
+                document.documentElement.className = savedTheme;
+              } else {
+                // Check system preference
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.className = prefersDark ? 'dark' : 'light';
+                // Optionally save the system preference to localStorage
+                localStorage.setItem('theme', prefersDark ? 'dark' : 'light');
+              }
             } catch (e) {
               console.error('Error accessing localStorage:', e);
-              document.documentElement.className = 'dark';
+              // Fallback to system preference if localStorage fails
+              const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+              document.documentElement.className = prefersDark ? 'dark' : 'light';
             }
           })();
+
+          // Listen for system theme changes when no manual preference is set
+          try {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            mediaQuery.addEventListener('change', function(e) {
+              const savedTheme = localStorage.getItem('theme');
+              if (!savedTheme) {
+                document.documentElement.className = e.matches ? 'dark' : 'light';
+                localStorage.setItem('theme', e.matches ? 'dark' : 'light');
+              }
+            });
+          } catch (e) {
+            console.error('Error setting up theme listener:', e);
+          }
         `,
       }}
     />

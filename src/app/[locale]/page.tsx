@@ -43,6 +43,7 @@ export default function Home() {
               <Image
                 src="/images/mobile.png"
                 width={0}
+                priority={true}
                 height={0}
                 sizes="100vw"
                 style={{ width: "100%", height: "auto" }}
