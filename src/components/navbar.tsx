@@ -1,11 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link as Link1 } from "react-scroll";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { MdMenu } from "react-icons/md";
 import LogoDark from "@/app/icons/LogoDark";
 import LogoLight from "@/app/icons/LogoLight";
+import Switcher from "./switcher";
 
 export default function Navbar({
   navLight,
@@ -20,6 +21,7 @@ export default function Navbar({
   const [menu, setMenu] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean>(false);
   const [theme, setTheme] = useState<string>("dark");
+  const menuRef = useRef<HTMLDivElement>(null);
   const t = useTranslations();
 
   useEffect(() => {
@@ -43,14 +45,12 @@ export default function Navbar({
 
     window.addEventListener("scroll", handlerScroll);
 
-    // Cleanup
     return () => {
       window.removeEventListener("scroll", handlerScroll);
       window.removeEventListener("storage", handleThemeChange);
     };
   }, []);
 
-  // Create a MutationObserver to watch for theme changes via class changes
   useEffect(() => {
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
@@ -91,27 +91,40 @@ export default function Navbar({
           )}
         </Link>
 
-        {/* Rest of your navbar code remains the same */}
-        <div className="nav-icons flex items-center lg_992:order-2 md:ms-6">
+        <div className="nav-icons flex gap-2 items-center lg_992:order-2 md:ms-6">
           <button
             type="button"
-            className="collapse-btn inline-flex items-center ms-2 text-slate-900 dark:text-white lg_992:hidden"
+            className="collapse-btn inline-flex items-center ms-2 text-slate-900 dark:text-white lg_992:hidden transition-transform duration-300 ease-in-out"
             onClick={() => setMenu(!menu)}
+            aria-expanded={menu}
           >
             <span className="sr-only">Navigation Menu</span>
-            <i className="mdi mdi-menu text-[24px]"></i>
-            <MdMenu className="text-[24px]" />
+            <MdMenu
+              className={`text-2xl transform transition-transform duration-300 ${
+                menu ? "rotate-180" : ""
+              }`}
+            />
           </button>
+          <Switcher />
         </div>
 
         <div
-          className={`navigation lg_992:order-1 lg_992:flex  ${
+          ref={menuRef}
+          className={`navigation lg_992:order-1 lg_992:flex ${
             navCenter ? "" : "ms-auto"
-          } ${menu ? "" : "hidden"}`}
+          } transition-all duration-300 ease-in-out overflow-hidden ${
+            menu
+              ? "max-h-96 opacity-100"
+              : "max-h-0 opacity-0 lg_992:max-h-96 lg_992:opacity-100"
+          }`}
           id="menu-collapse"
         >
           <ul
-            className={`navbar-nav ${navLight ? "nav-light" : ""}`}
+            className={`navbar-nav ${
+              navLight ? "nav-light" : ""
+            } transform transition-transform duration-300 ${
+              menu ? "translate-y-0" : "-translate-y-2 lg_992:translate-y-0"
+            }`}
             id="navbar-navlist"
           >
             <li className="nav-item ms-0">

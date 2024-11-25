@@ -12,25 +12,19 @@ export default function Feature() {
     icon: IconType;
     title: string;
     desc: string;
-    active: boolean;
   }
   return (
-    <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mt-6 gap-6">
+    <div className="grid  grid-cols-1 mt-6 gap-1 lg:grid-cols-4 md:grid-cols-2 md:gap-6">
       {feature.map((item: Feature, index: number) => {
         const Icon = item.icon;
         return (
           <div
-            className={`p-6  transition duration-500 rounded-3xl ${
-              item.active
-                ? "hover:shadow-xl hover:shadow-slate-100 dark:hover:shadow-slate-800"
-                : "shadow-xl shadow-slate-100 dark:shadow-slate-800"
-            }`}
+            className="flex flex-row gap-3 p-2 transition duration-500 rounded-3xl hover:shadow-xl hover:shadow-slate-100 dark:hover:shadow-slate-800 md:flex-col md:p-6"
             key={index}
           >
-            <div className="size-16 bg-red-500/5 text-[#9761FF] rounded-2xl flex align-middle justify-center items-center shadow-sm">
+            <div className="size-16 mt-[10px] text-[#9761FF] rounded-2xl flex align-middle justify-center items-center md:shadow-sm md:bg-red-500/5">
               <Icon className="size-5" />
             </div>
-
             <div className="content mt-7">
               <Link
                 href="#"
