@@ -23,9 +23,7 @@ export default function Footer() {
           <div className="xl:mr-0 lg:mr-6 md:mr-12 md:col-span-9 mt-4 md:mt-0">
             <div className="text-center md:text-right">
               <p className="text-gray-400 text-sm md:text-base flex items-center w-full gap-1 justify-center md:justify-end">
-                © {new Date().getFullYear()} {t("footer-1")}
-                <HiHeart className="text-[#9761FF] text-sm md:text-base" />
-                {t("footer-2")}
+                {t("copyright", { year: new Date().getFullYear() })}
               </p>
             </div>
           </div>
