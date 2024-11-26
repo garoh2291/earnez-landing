@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { HiHeart } from "react-icons/hi";
 import { useTranslations } from "next-intl";
 import LogoDark from "@/app/icons/LogoDark";
 
