@@ -1,11 +1,17 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/app/hooks/useTranslations";
 import LogoDark from "@/app/icons/LogoDark";
 
 export default function Footer() {
-  const t = useTranslations();
+  const { t } = useTranslations();
+
+  // Format the translation with the year
+  const copyright = t("copyright").replace(
+    "{year}",
+    new Date().getFullYear().toString()
+  );
 
   return (
     <footer className="py-6 md:py-8 bg-slate-800 dark:bg-gray-900">
@@ -22,7 +28,7 @@ export default function Footer() {
           <div className="xl:mr-0 lg:mr-6 md:mr-12 md:col-span-9 mt-4 md:mt-0">
             <div className="text-center md:text-right">
               <p className="text-gray-400 text-sm md:text-base flex items-center w-full gap-1 justify-center md:justify-end">
-                {t("copyright", { year: new Date().getFullYear() })}
+                {copyright}
               </p>
             </div>
           </div>

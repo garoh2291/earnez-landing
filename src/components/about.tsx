@@ -1,9 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/app/hooks/useTranslations";
 
 export default function About() {
-  const t = useTranslations();
+  const { t } = useTranslations();
+
   return (
     <div className="grid md:grid-cols-12 grid-cols-1 items-center gap-6">
       <div className="lg:col-span-5 md:col-span-6">

@@ -1,22 +1,24 @@
 import React from "react";
 import Link from "next/link";
-
 import { feature } from "@/data/data";
 import { IconType } from "react-icons";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/app/hooks/useTranslations";
+
+interface Feature {
+  icon: IconType;
+  title: string;
+  desc: string;
+}
 
 export default function Feature() {
-  const t = useTranslations("feature-cards");
+  const { t } = useTranslations();
 
-  interface Feature {
-    icon: IconType;
-    title: string;
-    desc: string;
-  }
   return (
-    <div className="grid  grid-cols-1 mt-6 gap-1 lg:grid-cols-4 md:grid-cols-2 md:gap-6">
+    <div className="grid grid-cols-1 mt-6 gap-1 lg:grid-cols-4 md:grid-cols-2 md:gap-6">
       {feature.map((item: Feature, index: number) => {
         const Icon = item.icon;
+        const cardNumber = index + 1;
+
         return (
           <div
             className="flex flex-row gap-3 p-2 transition duration-500 rounded-3xl hover:shadow-xl hover:shadow-slate-100 dark:hover:shadow-slate-800 md:flex-col md:p-6"
@@ -30,9 +32,11 @@ export default function Feature() {
                 href="#"
                 className="text-lg hover:text-[#9761FF] dark:text-white dark:hover:text-[#9761FF] transition-all duration-500 ease-in-out font-semibold"
               >
-                {t(item.title)}
+                {t(`feature-cards.card${cardNumber as 1 | 2 | 3 | 4}.title`)}
               </Link>
-              <p className="text-slate-400 mt-3">{t(item.desc)}</p>
+              <p className="text-slate-400 mt-3">
+                {t(`feature-cards.card${cardNumber as 1 | 2 | 3 | 4}.desc`)}
+              </p>
             </div>
           </div>
         );

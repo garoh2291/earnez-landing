@@ -4,7 +4,7 @@ import CountUp from "react-countup";
 import { FiChevronUp, FiDownload } from "react-icons/fi";
 import { faq } from "../data/data";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/app/hooks/useTranslations";
 
 interface FaqData {
   id: number;
@@ -15,7 +15,7 @@ interface FaqData {
 export default function Faq() {
   const [activeTab, setActiveTab] = useState<number>(1);
   const [heights, setHeights] = useState<{ [key: number]: number }>({});
-  const t = useTranslations();
+  const { t } = useTranslations();
 
   const contentRefs = useRef<{ [key: number]: HTMLDivElement | null }>({});
 
@@ -96,7 +96,9 @@ export default function Faq() {
                           : ""
                       }`}
                     >
-                      <span>{t(item.title)}</span>
+                      <span>
+                        {t(`faqs-item${item.id as 1 | 2 | 3 | 4}.title`)}
+                      </span>
                       <FiChevronUp
                         className={`size-4 shrink-0 transition-transform duration-300 ease-in-out ${
                           activeTab === item.id ? "" : "rotate-180"
@@ -118,7 +120,7 @@ export default function Faq() {
                   >
                     <div className="p-5">
                       <p className="text-slate-400 dark:text-gray-400">
-                        {t(item.desc)}
+                        {t(`faqs-item${item.id as 1 | 2 | 3 | 4}.desc`)}
                       </p>
                     </div>
                   </div>

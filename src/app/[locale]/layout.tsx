@@ -1,10 +1,6 @@
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
 import { Manrope } from "next/font/google";
 import { Metadata } from "next";
-
+import { LOCALES, Locale } from "@/locales/locales";
 import "../assets/scss/tailwind.scss";
 
 const manrope = Manrope({
@@ -12,22 +8,30 @@ const manrope = Manrope({
   variable: "--font-manrope",
 });
 
+export const generateStaticParams = async () => {
+  return Object.keys(LOCALES).map((locale) => ({ locale }));
+};
+
+// Validate locale
+const isValidLocale = (locale: string): locale is Locale => {
+  return Object.keys(LOCALES).includes(locale);
+};
+
 export async function generateMetadata({
   params: { locale },
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
-  const messages = await getMessages();
+  // Get translations for the current locale
+  const messages = isValidLocale(locale) ? LOCALES[locale] : LOCALES.en;
 
   return {
     title:
-      typeof messages?.title === "string"
-        ? messages.title
-        : "EarnEZ - Turn Your Phone Into a Passive Income Generator",
+      messages.meta?.title ||
+      "EarnEZ - Turn Your Phone Into a Passive Income Generator",
     description:
-      typeof messages?.description === "string"
-        ? messages.description
-        : "Turn your Android phone into an automatic income stream with EarnEZ. Earn €0.01-0.03 per SMS test message. No effort required, fast payouts, and complete privacy protection.",
+      messages.meta?.description ||
+      "Turn your Android phone into an automatic income stream with EarnEZ. Earn €0.01-0.03 per SMS test message. No effort required, fast payouts, and complete privacy protection.",
     icons: {
       icon: [
         { url: "/favicon.ico" },
@@ -36,37 +40,6 @@ export async function generateMetadata({
       ],
     },
   };
-}
-
-export default async function LocaleLayout({
-  children,
-  params: { locale },
-}: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
-  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
-    notFound();
-  }
-
-  const messages = await getMessages();
-
-  return (
-    <html
-      lang={locale}
-      className="scroll-smooth"
-      dir={locale === "fa" ? "rtl" : "ltr"}
-    >
-      <body
-        className={`${manrope.variable} font-manrope text-base text-slate-900 dark:text-white dark:bg-slate-900`}
-      >
-        <ThemeScript />
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-      </body>
-    </html>
-  );
 }
 
 function ThemeScript() {
@@ -106,5 +79,33 @@ function ThemeScript() {
         `,
       }}
     />
+  );
+}
+
+export default async function LocaleLayout({
+  children,
+  params: { locale },
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
+  // Validate locale
+  // if (!isValidLocale(locale)) {
+  //   notFound();
+  // }
+
+  return (
+    <html
+      lang={locale}
+      className="scroll-smooth"
+      dir={locale === "fa" ? "rtl" : "ltr"}
+    >
+      <body
+        className={`${manrope.variable} font-manrope text-base text-slate-900 dark:text-white dark:bg-slate-900`}
+      >
+        <ThemeScript />
+        {children}
+      </body>
+    </html>
   );
 }

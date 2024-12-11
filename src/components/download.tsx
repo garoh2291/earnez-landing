@@ -1,13 +1,13 @@
 import React from "react";
 import Link from "next/link";
-
 import { FiSmartphone } from "react-icons/fi";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/app/hooks/useTranslations";
 import { HiArrowNarrowRight } from "react-icons/hi";
 
 export default function Download() {
-  const t = useTranslations();
+  const { t } = useTranslations();
+
   return (
     <div className="container relative py-1 md:py-[70px]">
       <div className="grid md:grid-cols-12 grid-cols-1 items-center gap-6">

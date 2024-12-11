@@ -2,27 +2,25 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link as Link1 } from "react-scroll";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/app/hooks/useTranslations";
 import { MdMenu } from "react-icons/md";
 import LogoDark from "@/app/icons/LogoDark";
 import LogoLight from "@/app/icons/LogoLight";
 import Switcher from "./switcher";
 
-export default function Navbar({
-  navLight,
-  bgLight,
-  navCenter,
-}: {
+interface NavbarProps {
   navLight: boolean;
   playBtn: boolean;
   bgLight: boolean;
   navCenter: boolean;
-}) {
+}
+
+export default function Navbar({ navLight, bgLight, navCenter }: NavbarProps) {
   const [menu, setMenu] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean>(false);
   const [theme, setTheme] = useState<string>("dark");
   const menuRef = useRef<HTMLDivElement>(null);
-  const t = useTranslations();
+  const { t } = useTranslations();
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "dark";
@@ -127,65 +125,22 @@ export default function Navbar({
             }`}
             id="navbar-navlist"
           >
-            <li className="nav-item ms-0">
-              <Link1
-                className="nav-link"
-                spy={true}
-                smooth={true}
-                duration={500}
-                to="home"
-              >
-                {t("home")}
-              </Link1>
-            </li>
-            <li className="nav-item ms-0">
-              <Link1
-                className="nav-link"
-                spy={true}
-                smooth={true}
-                duration={500}
-                to="features"
-                onClick={() => setMenu(!menu)}
-              >
-                {t("features")}
-              </Link1>
-            </li>
-            <li className="nav-item ms-0">
-              <Link1
-                className="nav-link"
-                spy={true}
-                smooth={true}
-                duration={500}
-                to="about"
-                onClick={() => setMenu(!menu)}
-              >
-                {t("about")}
-              </Link1>
-            </li>
-            <li className="nav-item ms-0">
-              <Link1
-                className="nav-link"
-                spy={true}
-                smooth={true}
-                duration={500}
-                to="faqs"
-                onClick={() => setMenu(!menu)}
-              >
-                {t("faqs")}
-              </Link1>
-            </li>
-            <li className="nav-item ms-0">
-              <Link1
-                className="nav-link"
-                spy={true}
-                smooth={true}
-                duration={500}
-                to="download"
-                onClick={() => setMenu(!menu)}
-              >
-                {t("download")}
-              </Link1>
-            </li>
+            {["home", "features", "about", "faqs", "download"].map((item) => (
+              <li key={item} className="nav-item ms-0">
+                <Link1
+                  className="nav-link"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  to={item}
+                  onClick={() => item !== "home" && setMenu(!menu)}
+                >
+                  {t(
+                    item as "home" | "features" | "about" | "faqs" | "download"
+                  )}
+                </Link1>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
