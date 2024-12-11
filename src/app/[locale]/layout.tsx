@@ -12,18 +12,31 @@ const manrope = Manrope({
   variable: "--font-manrope",
 });
 
-export const metadata: Metadata = {
-  title: "EarnEZ - Turn Your Phone Into a Passive Income Generator",
-  description:
-    "Turn your Android phone into an automatic income stream with EarnEZ. Earn €0.01-0.03 per SMS test message. No effort required, fast payouts, and complete privacy protection.",
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon.ico", sizes: "16x16" },
-      { url: "/favicon.ico", sizes: "32x32" },
-    ],
-  },
-};
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const messages = await getMessages();
+
+  return {
+    title:
+      typeof messages?.title === "string"
+        ? messages.title
+        : "EarnEZ - Turn Your Phone Into a Passive Income Generator",
+    description:
+      typeof messages?.description === "string"
+        ? messages.description
+        : "Turn your Android phone into an automatic income stream with EarnEZ. Earn €0.01-0.03 per SMS test message. No effort required, fast payouts, and complete privacy protection.",
+    icons: {
+      icon: [
+        { url: "/favicon.ico" },
+        { url: "/favicon.ico", sizes: "16x16" },
+        { url: "/favicon.ico", sizes: "32x32" },
+      ],
+    },
+  };
+}
 
 export default async function LocaleLayout({
   children,

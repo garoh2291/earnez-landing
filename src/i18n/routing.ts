@@ -21,8 +21,7 @@ export const routing = defineRouting({
       domain:
         process.env.NODE_ENV === "development"
           ? "en.localhost:3000"
-          : // : `en.${process.env.NEXT_PUBLIC_URL!}`,
-            process.env.NEXT_PUBLIC_URL!,
+          : `en.${process.env.NEXT_PUBLIC_URL!}`,
 
       defaultLocale: "en",
       locales: ["en"],
@@ -31,8 +30,7 @@ export const routing = defineRouting({
       domain:
         process.env.NODE_ENV === "development"
           ? "ru.localhost:3000"
-          : // : `ru.${process.env.NEXT_PUBLIC_URL!}`,
-            process.env.NEXT_PUBLIC_URL!,
+          : `ru.${process.env.NEXT_PUBLIC_URL!}`,
 
       defaultLocale: "ru",
       locales: ["ru"],
@@ -41,8 +39,7 @@ export const routing = defineRouting({
       domain:
         process.env.NODE_ENV === "development"
           ? "fa.localhost:3000"
-          : // : `fa.${process.env.NEXT_PUBLIC_URL!}`,
-            process.env.NEXT_PUBLIC_URL!,
+          : `fa.${process.env.NEXT_PUBLIC_URL!}`,
       defaultLocale: "fa",
       locales: ["fa"],
     },
@@ -50,8 +47,7 @@ export const routing = defineRouting({
       domain:
         process.env.NODE_ENV === "development"
           ? "zh.localhost:3000"
-          : // : `zh.${process.env.NEXT_PUBLIC_URL!}`,
-            process.env.NEXT_PUBLIC_URL!,
+          : `zh.${process.env.NEXT_PUBLIC_URL!}`,
       defaultLocale: "zh",
       locales: ["zh"],
     },
